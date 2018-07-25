@@ -1,4 +1,6 @@
 <div *ngIf="user$">
+    <a href="javascript:void(0)" (click)="back()">
+        <i class="material-icons">keyboard_backspace</i></a>
     <h1>{{ user$.name }}</h1>
     <ul>
         <li><strong>Username:</strong> {{user$.name}}</li>

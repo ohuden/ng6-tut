@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +13,7 @@ export class DetailsComponent implements OnInit {
 
   user$: Object;
 
-  constructor(private data: DataService, private route: ActivatedRoute) {
+  constructor(private data: DataService, private route: ActivatedRoute, private location: Location) {
     this.route.params.subscribe( params => this.user$ = params.id);
   }
 
@@ -21,5 +22,8 @@ export class DetailsComponent implements OnInit {
       data => this.user$ = data
     );
   }
+  back() {
+    this.location.back();
+}
 
 }
